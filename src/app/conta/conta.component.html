@@ -1,0 +1,28 @@
+<div class="table">
+  <table class="table table-striped table-dark" style="width: 100%">
+    <tr>
+      <th>Nome</th>
+      <th>Cpf</th>
+      <th>email</th>
+      <th>dataNascimento</th>
+      <th>endereco</th>
+      <th>movimentações</th>
+      <th>acoes</th>
+    </tr>
+
+    <tr *ngFor="let Cliente of list">
+      <td>{{ Cliente.nome }}</td>
+      <td>{{ Cliente.cpf }}</td>
+      <td>{{ Cliente.email }}</td>
+
+      <td>{{ Cliente.dataNascimento }}</td>
+      <td>{{ Cliente.endereco }}</td>
+      <td><span class="material-icons"> leaderboard </span></td>
+      <td>
+        <button class="btn btn-outline-danger" (click)="deletar(Cliente)">
+          <span class="material-icons"> delete_outline </span>
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

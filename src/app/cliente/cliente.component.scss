@@ -1,0 +1,54 @@
+.box {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  p {
+    font-variant: small-caps;
+  }
+
+  button:hover {
+    background-color: green;
+  }
+}
+input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  padding: 10px;
+  width: 400px;
+}
+@keyframes fa-blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fa-blink {
+  -webkit-animation: fa-blink 0.75s linear infinite;
+  -moz-animation: fa-blink 0.75s linear infinite;
+  -ms-animation: fa-blink 0.75s linear infinite;
+  -o-animation: fa-blink 0.75s linear infinite;
+  animation: fa-blink 0.75s linear infinite;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+}
+li {
+  text-align: center;
+  cursor: pointer;
+}
+.rodape {
+  text-align: center;
+  font-size: 12px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: black;
+}

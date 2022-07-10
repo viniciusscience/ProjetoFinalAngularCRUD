@@ -1,0 +1,42 @@
+.menu li {
+  display: inline-block;
+  margin: 0;
+  padding: 30px;
+  text-align: center;
+
+  border-radius: 60px;
+  border: none;
+  appearance: none;
+
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  resize: none;
+}
+a:link {
+  border-radius: 60px;
+  background: #079ae4;
+  color: white;
+  text-decoration: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 10px;
+  margin-left: 100px;
+}
+a:hover {
+  color: black;
+  border-radius: 60px;
+  background-color: white;
+}
+.menu {
+  background-color: #079ae4;
+  text-align: center;
+}
+img {
+  display: block;
+  margin-left: 50px;
+  margin-bottom: 50px;
+}
+a {
+  color: white;
+}

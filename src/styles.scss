@@ -1,0 +1,24 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+@import "../node_modules/bootstrap/scss/functions";
+
+body {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 68, 255, 0),
+    rgb(0, 119, 255)
+  );
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+input {
+  border-radius: 15px;
+}

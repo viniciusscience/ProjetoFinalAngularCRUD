@@ -1,0 +1,74 @@
+<div class="box">
+  <i class="fa-solid fa-anchor-circle-check"></i>
+  <p>Gerenciador e Cadastro de contas</p>
+
+  <i class="fa-blink"> SEJA BEM VINDO</i>
+
+  <ul>
+    <li>
+      <i class="fa fa-comments pisca"></i>
+    </li>
+  </ul>
+
+  <form class="form-box" [formGroup]="form" (ngSubmit)="cadastrar()">
+    <input
+      formControlName="nome"
+      placeholder="Nome"
+      type="text"
+      maxlength="64"
+    />
+    <input formControlName="cpf" placeholder="Cpf" type="text" maxlength="14" />
+    <input
+      formControlName="endereco"
+      placeholder="endereco"
+      type="text"
+      maxlength="32"
+    />
+    <input
+      formControlName="tipo"
+      placeholder="tipo de conta CC ou CP"
+      type="text"
+      maxlength="02"
+    />
+    <input
+      formControlName="email"
+      placeholder="email"
+      type="email"
+      maxlength="32"
+    />
+    <input
+      formControlName="telefone"
+      placeholder="telefone"
+      type="text"
+      maxlength="10"
+    />
+    <input
+      formControlName="dataNascimento"
+      placeholder="Data de Nascimento"
+      type="date"
+      maxlength="14"
+    />
+
+    <button class="btn btn-info" type="submit" [disabled]="!form.valid">
+      Cadastrar
+    </button>
+  </form>
+  <hr />
+  {{ mensagem }}
+
+  <hr />
+</div>
+
+<div class="rodape">
+  <footer>
+    Toda comunicação através da rede mundial de computadores está sujeita a
+    interrupções ou atrasos, podendo prejudicar ordens, negociações ou a
+    recepção de informações atualizadas. O Mybank, exime-se de responsabilidade
+    por danos sofridos por seus clientes, por força de falha de serviços
+    disponibilizados por terceiros, incluindo, sem limitação aqueles conexos à
+    rede mundial de computadores.
+  </footer>
+  <hr />
+  MYBANK S/A - CNPJ: 00.000.000/0001-28
+  <img class="img" src="/assets/índice.png" width="30px" height="25px" />
+</div>

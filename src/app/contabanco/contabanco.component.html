@@ -1,0 +1,37 @@
+<div class="table">
+  <p>Clientes</p>
+  <form class="form-box" [formGroup]="form" (ngSubmit)="cadastrar()">
+    <select class="form-select" formControlName="idCliente">
+      <option value="">Selecione um Cliente</option>
+      <ng-template ngFor let-item [ngForOf]="cliente">
+        <option value="{{ item.id }}">
+          {{ item.nome }}
+        </option>
+      </ng-template>
+    </select>
+    <button type="submit" [disabled]="!form.valid">Cadastrar</button>
+  </form>
+  <table class="table table-striped table-dark" style="width: 100%">
+    <tr>
+      <th>tipo</th>
+      <th>saldo</th>
+
+      <th>agencia</th>
+      <th>senha</th>
+      <th>status</th>
+      <th>acoes</th>
+    </tr>
+    <tr *ngFor="let Contabanco of contabanco">
+      <td>{{ Contabanco.tipo }}</td>
+      <td>{{ Contabanco.valor }}</td>
+      <td>{{ Contabanco.agencia }}</td>
+      <td>{{ Contabanco.senha }}</td>
+      <td><span class="material-icons"> verified_user </span></td>
+      <td>
+        <button class="btn btn-outline-danger" (click)="excluir(Contabanco.id)">
+          <span class="material-icons"> delete_outline </span>
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
