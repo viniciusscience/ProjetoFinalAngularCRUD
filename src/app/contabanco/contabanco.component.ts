@@ -1,18 +1,17 @@
-import { ContaBanco } from './../domain/conta-banco';
+import { ClienteModel } from './../model/cliente-model';
 import { ContaBancoService } from './../service/conta-banco.service';
 import { ClienteService } from './../service/cliente.service';
 import { Cliente } from './../domain/cliente';
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ClienteModel } from '../model/cliente-model';
-import { Observable } from 'rxjs';
+
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { validateHorizontalPosition } from '@angular/cdk/overlay';
+
+import { ContaBancoModel } from '../model/conta-banco-model';
 
 @Component({
   selector: 'app-contabanco',
@@ -20,8 +19,8 @@ import { validateHorizontalPosition } from '@angular/cdk/overlay';
   styleUrls: ['./contabanco.component.scss'],
 })
 export class ContabancoComponent implements OnInit {
-  cliente: Cliente[] = [];
-  contabanco: ContaBanco[] = [];
+  cliente: ClienteModel[] = [];
+  contabanco: ContaBancoModel[] = [];
   form: FormGroup = this.formBuilder.group({
     idCliente: new FormControl('', [Validators.required]),
   });
@@ -37,7 +36,7 @@ export class ContabancoComponent implements OnInit {
   }
 
   private carregarTabela(): void {
-    this.clienteservice.consultar().subscribe((domains: Cliente[]) => {
+    this.clienteservice.consultar().subscribe((domains: ClienteModel[]) => {
       if (domains) {
         this.cliente = domains;
       }

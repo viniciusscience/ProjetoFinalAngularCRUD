@@ -13,21 +13,24 @@ export class ContaBancoService {
 
   constructor(private http: HttpClient) {}
 
-  cadastrar(idCliente: string): Observable<ContaBanco> {
-    return this.http.post<ContaBanco>(this.url + 'cadastrar', {
-      idCliente,
-    });
+  cadastrar(idCliente: string): Observable<ContaBancoModel> {
+    return this.http.post<ContaBancoModel>(
+      this.url + 'cadastrar/' + idCliente,
+      {
+        idCliente,
+      }
+    );
   }
 
-  alterar(id: string, model: ContaBancoModel): Observable<ContaBanco> {
-    return this.http.put<ContaBanco>(this.url + 'alterar/' + id, model);
+  alterar(id: string, model: ContaBancoModel): Observable<ContaBancoModel> {
+    return this.http.put<ContaBancoModel>(this.url + 'alterar/' + id, model);
   }
 
-  consultar(): Observable<ContaBanco[]> {
-    return this.http.get<ContaBanco[]>(this.url + 'consultar');
+  consultar(): Observable<ContaBancoModel[]> {
+    return this.http.get<ContaBancoModel[]>(this.url + 'consultar');
   }
 
-  remover(id: string): Observable<ContaBanco> {
-    return this.http.delete<ContaBanco>(this.url + 'remover/' + id);
+  remover(id: string): Observable<ContaBancoModel> {
+    return this.http.delete<ContaBancoModel>(this.url + 'remover/' + id);
   }
 }

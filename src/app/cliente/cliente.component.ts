@@ -17,7 +17,7 @@ import { ClienteModel } from '../model/cliente-model';
 })
 export class ClienteComponent implements OnInit {
   mensagem: string = '';
-  list: Cliente[] = [];
+  list: ClienteModel[] = [];
   contador: number = 0;
   form: FormGroup = this.formBuilder.group({
     id: new FormControl(null),
@@ -42,13 +42,13 @@ export class ClienteComponent implements OnInit {
   }
 
   private carregarTabela(): void {
-    this.clienteservice.consultar().subscribe((domains: Cliente[]) => {
+    this.clienteservice.consultar().subscribe((domains: ClienteModel[]) => {
       if (domains) {
         this.list = domains;
       }
     });
   }
-  editar(cliente: Cliente): void {
+  editar(cliente: ClienteModel): void {
     this.form.controls['id'].setValue(cliente.id);
     this.form.controls['nome'].setValue(cliente.nome);
     this.form.controls['cpf'].setValue(cliente.cpf);
@@ -60,21 +60,25 @@ export class ClienteComponent implements OnInit {
     const cliente: ClienteModel = this.form.getRawValue();
     this.contador++;
     if (id) {
-      this.clienteservice.alterar(id, cliente).subscribe((domain: Cliente) => {
-        if (domain.id) {
-          this.carregarTabela();
-          this.form.reset();
-        }
-      });
+      this.clienteservice
+        .alterar(id, cliente)
+        .subscribe((domain: ClienteModel) => {
+          if (domain.id) {
+            this.carregarTabela();
+            this.form.reset();
+          }
+        });
     } else {
-      this.clienteservice.cadastrar(cliente).subscribe((domain: Cliente) => {
-        if (domain.id) {
-          this.list.push(domain);
-          this.mensagem = 'CLIENTE CADASTRADO COM SUCESSO';
+      this.clienteservice
+        .cadastrar(cliente)
+        .subscribe((domain: ClienteModel) => {
+          if (domain.id) {
+            this.list.push(domain);
+            this.mensagem = 'CLIENTE CADASTRADO COM SUCESSO';
 
-          this.form.reset();
-        }
-      });
+            this.form.reset();
+          }
+        });
     }
   }
 }
